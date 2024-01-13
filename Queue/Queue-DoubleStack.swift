@@ -12,6 +12,14 @@ public struct Queue<T> {
         return inbox.count + outbox.count
     }
     
+    public var front: T? {
+        outbox.isEmpty ? inbox.first : outbox.last
+    }
+    
+    public var back: T? {
+        inbox.isEmpty ? outbox.first : inbox.last
+    }
+    
     public mutating func enqueue(_ element: T) {
         inbox.append(element)
     }
